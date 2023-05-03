@@ -3,7 +3,11 @@ const inquirer = require("inquirer");
 const { Triangle, Circle, Square } = require("./lib/shapes");
 
 function writeToFile(fileName, promptAnswer) {
-    let logo = "";
+
+    let logo = '<?xml version="1.0" standalone="no"?>' +
+        ' <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">';
+
+        logo += '</svg>';
     fs.writeFile(fileName, logo, (error) => {
         error ? console.log(error) : console.log("Generated logo.svg");
     });
