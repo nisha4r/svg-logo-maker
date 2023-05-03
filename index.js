@@ -2,7 +2,11 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const { Triangle, Circle, Square } = require("./lib/shapes");
 
-function writeToFile() {
+function writeToFile(fileName, promptAnswer) {
+    let logo;
+    fs.writeFile(fileName, logo), (error) => {
+        error ? console.log(error) : console.log("Generated logo.svg");
+    }
 
 }
 function question() {
@@ -30,15 +34,16 @@ function question() {
         name: "shapecolor"
 
     }
-]).then(promptAnswer => {
-    //Validate the logoname text is more than 3 character
-    if(promptAnswer.logoname.length > 3){
-        console.log("logo name is more than 3 characters, please enter max of 3 characters to generate a logo");
-    }else{
-        //generate logo file here
-        writeToFile();
-    }
-});
+    ]).then(promptAnswer => {
+        //Validate the logoname text is more than 3 character
+        if (promptAnswer.logoname.length > 3) {
+            console.log("logo name is more than 3 characters, please enter max of 3 characters to generate a logo");
+        } else {
+            //generate logo file here
+            let fileName = 'logo.svg';
+            writeToFile(fileName, promptAnswer);
+        }
+    });
 }
 
 
