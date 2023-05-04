@@ -41,8 +41,9 @@ function question() {
     }
     ]).then(promptAnswer => {
         //Validate the logoname text is more than 3 character
-        if (promptAnswer.logoname.length > 3) {
+        if (promptAnswer.logoName.length > 3) {
             console.log("logo name is more than 3 characters, please enter max of 3 characters to generate a logo");
+            question();
         } else {
             //generate logo file here
             let fileName = 'logo.svg';
