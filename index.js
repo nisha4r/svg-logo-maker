@@ -2,13 +2,10 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const { Triangle, Circle, Square } = require("./lib/shapes");
 
-function writeToFile(fileName, promptAnswer) {
+function writeToFile(fileName, answer) {
+    console.log(answer);
 
-    let logo = '<?xml version="1.0" standalone="no"?>' +
-        ' <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">';
-    let shape = promptAnswer.shape;
-   
-        logo += '</svg>';
+    let logo = createShape(answer);
     fs.writeFile(fileName, logo, (error) => {
         error ? console.log(error) : console.log("Generated logo.svg");
     });
@@ -39,7 +36,7 @@ function question() {
         name: "shapeColor"
 
     }
-    ]).then(promptAnswer => {
+    ]).then((promptAnswer) => {
         //Validate the logoname text is more than 3 character
         if (promptAnswer.logoName.length > 3) {
             console.log("logo name is more than 3 characters, please enter max of 3 characters to generate a logo");
@@ -52,26 +49,33 @@ function question() {
     });
 }
 
-function createShape(resp){
+function createShape(resp) {
 
     let shape = resp.shape;
     let text = resp.logoName;
     let shapeBgColor = resp.shapeColor;
     let textBgColor = resp.textColor;
 
-    switch(shape) {
+    switch (shape) {
         case "Triangle":
-          let triangle = new Triangle(text, textBgColor, shapeBgColor);
-          break;
+            let triangle = new Triangle(text, textBgColor, shapeBgColor);
+            return triangle.render();
+            break;
         case "Circle":
-         
-          break;
+            let circle = new Circle(text, textBgColor, shapeBgColor);
+            return circle.render();
+            break;
         case "Square":
-          
-          break;
+            let square = new Square(text, textBgColor, shapeBgColor);
+            return square.render();
+            break;
         default:
-          
-      }
+            console.log("Invalid shape type encountered, please select Triangle, Circle, Square from the options");
+            question();
+            return "";
+            break;
+
+    }
 }
 //prompt on load
 question();
