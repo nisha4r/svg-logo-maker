@@ -18,12 +18,12 @@ function question() {
     inquirer.prompt([{
         type: "input",
         message: "Enter the text to display in your logo (max 3 characters)",
-        name: "logoname"
+        name: "logoName"
     },
     {
         type: "input",
         message: "Enter text color either as color keyword or hexadecimal number",
-        name: "color"
+        name: "textColor"
 
     },
     {
@@ -36,7 +36,7 @@ function question() {
     {
         type: "input",
         message: "Enter the shape's color of your choice, input value should be : color keyword or hexadecimal number",
-        name: "shapecolor"
+        name: "shapeColor"
 
     }
     ]).then(promptAnswer => {
@@ -51,10 +51,16 @@ function question() {
     });
 }
 
-function createShape(shape){
+function createShape(resp){
+
+    let shape = resp.shape;
+    let text = resp.logoName;
+    let shapeBgColor = resp.shapeColor;
+    let textBgColor = resp.textColor;
+
     switch(shape) {
         case "Triangle":
-         
+          let triangle = new Triangle(text, textBgColor, shapeBgColor);
           break;
         case "Circle":
          
