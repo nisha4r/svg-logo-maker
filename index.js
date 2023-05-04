@@ -7,19 +7,7 @@ function writeToFile(fileName, promptAnswer) {
     let logo = '<?xml version="1.0" standalone="no"?>' +
         ' <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">';
     let shape = promptAnswer.shape;
-    switch(shape) {
-        case "Triangle":
-         
-          break;
-        case "Circle":
-         
-          break;
-        case "Square":
-          
-          break;
-        default:
-          
-      }
+   
         logo += '</svg>';
     fs.writeFile(fileName, logo, (error) => {
         error ? console.log(error) : console.log("Generated logo.svg");
@@ -63,6 +51,20 @@ function question() {
     });
 }
 
-
+function createShape(shape){
+    switch(shape) {
+        case "Triangle":
+         
+          break;
+        case "Circle":
+         
+          break;
+        case "Square":
+          
+          break;
+        default:
+          
+      }
+}
 //prompt on load
 question();
