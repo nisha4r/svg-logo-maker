@@ -29,4 +29,12 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 ## Video Walkthrough (Screencast)
 
+Video walkthrough: https://drive.google.com/file/d/1SaEZBTnA-0wP4CxLt6fxpIRC3x-hHc7l/view
+
+### Screenshot
+![Triangle SVG](./triangle.png)
+
 ## GIT
+https://github.com/nisha4r/svg-logo-maker
+
+
