@@ -1,4 +1,4 @@
 <?xml version="1.0" standalone="no"?>
-       <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-       xmlns="http://www.w3.org/2000/svg"> <polygon points="100, 15 200, 200 0, 200" />
+       <svg width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect x="100" y="125" width="150" height="150" stroke="undefined" fill="undefined" stroke-width="1" />
+       <text x="100" y="125" font-size="70" text-anchor="middle" fill="undefined">JK7</text>
        </svg>
